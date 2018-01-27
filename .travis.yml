@@ -1,8 +1,8 @@
 env:
   global:
-  - ANGULAR_REPO=srikanthpalla/db-details-angular
-  - MIDDLEWARE_REPO=srikanthpalla/db-details-boot
-  - MYSQL_REPO=srikanthpalla/db-details-mysql
+  - ANGULAR_REPO=hpalla/db-details-angular
+  - MIDDLEWARE_REPO=hpalla/db-details-boot
+  - MYSQL_REPO=hpalla/db-details-mysql
   - COMMIT=${TRAVIS_COMMIT::8}
 
 
