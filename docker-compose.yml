@@ -1,0 +1,39 @@
+version: "3"
+
+networks:
+  k8sample:
+      driver: overlay
+
+services:
+  angularweb:
+    image: hpalla/db-details-angular
+    container_name: angularweb
+    ports:
+      - "9090:80"
+    networks:
+      - k8sample
+
+  counterweb:
+    image: hpalla/db-details-boot
+    container_name: counterweb
+    ports:
+      - "8080:8080"
+    depends_on:
+      - mysqldb
+    networks:
+      - k8sample
+
+  mysqldb:
+    image: hpalla/db-details-mysql
+    container_name: mysqldb
+    env_file:
+      - .env
+    ports:
+      - "3306:3306"
+    volumes:
+      - "db-data:/var/lib/mysql"
+    networks:
+      - k8sample
+
+volumes:
+  db-data:
