@@ -9,7 +9,6 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.jdbc.core.RowMapper;
-import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
@@ -17,12 +16,10 @@ import org.springframework.web.bind.annotation.RestController;
 import com.app.api.BicDetailsDto;
 
 @RestController
-@CrossOrigin(maxAge = 3600)
 public class BaseController {
 	@Autowired JdbcTemplate jdbcTemplate;
 
 	@RequestMapping(value = "/getAllBics", method = RequestMethod.GET)
-	@CrossOrigin(maxAge = 3600)
 	public ResponseEntity<List<BicDetailsDto>> getAllBics() throws SQLException {
 		List<BicDetailsDto> response = getDataFromDb();
 		return new ResponseEntity<List<BicDetailsDto>>(response, HttpStatus.OK);
