@@ -1,6 +1,6 @@
 CREATE DATABASE IF NOT EXISTS core;
 USE core;
-REVOKE ALL PRIVILEGES, GRANT OPTION FROM 'testadmin'@'%';
+GRANT ALL PRIVILEGES ON core.* TO 'testadmin'@'%';
 CREATE TABLE bic_identifier (
   bic_code char(11) NOT NULL,
   description varchar(250) DEFAULT NULL,
@@ -25,3 +25,4 @@ INSERT INTO bic_identifier (bic_code,description) VALUES ('NWBKGB2LXXX','NATIONA
 INSERT INTO bic_identifier (bic_code,description) VALUES ('POALILITXXX','BANK HAPOALIM B.M.');
 INSERT INTO bic_identifier (bic_code,description) VALUES ('PPALUS66XXX','PAYPAL INC.');
 INSERT INTO bic_identifier (bic_code,description) VALUES ('WFBIUS6SXXX','WELLS FARGO BANK, N.A.');
+commit;
