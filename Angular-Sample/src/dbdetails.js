@@ -4,7 +4,7 @@
 var app = angular.module('mainApp', []);
 
 app.controller('table', ['$scope', '$http', function($scope, $http) {
-	$http.get('http://10.0.2.15:8080/getAllBics')
+	$http.get('http://localhost:8080/getAllBics')
 	.then(successCallback, errorCallback);
 	
 	function successCallback(response) {
