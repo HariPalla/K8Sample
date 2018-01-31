@@ -12,6 +12,7 @@ app.controller('table', ['$scope', '$http', function($scope, $http) {
 		$scope.records = response.data;
 	}
 	function errorCallback(response) {
+		console.log(response);
 		alert('Error Occured Code:' + response.status);
 	}
 }]);
